@@ -11,4 +11,9 @@ const registerProduct = async (data: IProduct): Promise<IProduct> => {
   return newObj;
 };
 
-export default { registerProduct };
+const getAll = async (): Promise<IProduct[]> => {
+  const products = await ProductModel.getAll();
+  return products;
+};
+
+export default { registerProduct, getAll };
