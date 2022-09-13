@@ -9,4 +9,9 @@ const registerProduct = async (product: IProduct): Promise<ResultSetHeader> => {
   return result;
 };
 
-export default { registerProduct };
+const getAll = async (): Promise<IProduct[]> => {
+  const [result] = await connection.execute('SELECT * FROM Trybesmith.Products');
+  return result as IProduct[];
+};
+
+export default { registerProduct, getAll };
